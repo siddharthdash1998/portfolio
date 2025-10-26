@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -61,12 +62,12 @@ export default function Home() {
             >
               LinkedIn
             </a>
-            <a 
+            <Link 
               href="/projects"
-              className="px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] hover:scale-105"
+              className="px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] hover:scale-105 inline-block"
             >
               View Projects →
-            </a>
+            </Link>
           </div>
 
           {/* Quick Stats with technical labels and glow */}
