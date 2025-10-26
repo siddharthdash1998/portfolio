@@ -1,7 +1,11 @@
 import Link from 'next/link';
+import TerminalSidebar from './components/TerminalSidebar';
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white relative overflow-hidden">
+      <div className="flex">
+      <TerminalSidebar />
+      <main className="flex-1 lg:ml-80 min-h-screen bg-black text-white relative overflow-hidden">
       {/* Stronger grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.08)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
       
@@ -45,7 +49,7 @@ export default function Home() {
           </p>
 
           {/* CTA Buttons with stronger glow on hover */}
-          <div className="flex gap-4 mb-16">
+          <div className="flex gap-4 mb-16 flex-wrap justify-center">
             <a 
               href="https://github.com/siddharthdashcsye6225" 
               target="_blank"
@@ -62,6 +66,12 @@ export default function Home() {
             >
               LinkedIn
             </a>
+            <Link 
+              href="/about"
+              className="px-8 py-3 bg-transparent border-2 border-purple-500 hover:bg-purple-500/20 text-purple-400 font-bold rounded transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] hover:scale-105 inline-block"
+            >
+              About Me
+            </Link>
             <Link 
               href="/projects"
               className="px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.7)] hover:scale-105 inline-block"
@@ -109,5 +119,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </div>
   );
 }

@@ -37,78 +37,76 @@ export default function TerminalSidebar() {
               <span className="text-blue-400">~</span>
               <span className="text-white">$</span>
             </div>
-            <div className="text-gray-400 text-xs">
-              Navigation v1.0.0
-            </div>
+            <div className="text-gray-400 text-xs">Navigation v1.0.0</div>
           </div>
 
           {/* File system navigation */}
           <div className="space-y-6">
-        {/* Root directory */}
+            {/* Root directory */}
             <div>
-            <div className="text-gray-500 text-xs mb-2">$ ls ~/portfolio</div>
-            <div className="space-y-1">
+              <div className="text-gray-500 text-xs mb-2">$ ls ~/portfolio</div>
+              <div className="space-y-1">
                 <Link
-                href="/"
-                className={`block py-2 px-3 rounded transition-all ${
+                  href="/"
+                  className={`block py-2 px-3 rounded transition-all ${
                     pathname === '/'
-                    ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
-                    : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10'
-                }`}
+                      ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
+                      : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10'
+                  }`}
                 >
-                / home
+                  / home
                 </Link>
                 <Link
-                href="/projects"
-                className={`block py-2 px-3 rounded transition-all ${
+                  href="/projects"
+                  className={`block py-2 px-3 rounded transition-all ${
                     pathname?.startsWith('/projects')
-                    ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
-                    : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10'
-                }`}
+                      ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
+                      : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10'
+                  }`}
                 >
-                / projects
+                  / projects
                 </Link>
                 <Link
-                href="/about"
-                className={`block py-2 px-3 rounded transition-all ${
+                  href="/about"
+                  className={`block py-2 px-3 rounded transition-all ${
                     pathname === '/about'
-                    ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
-                    : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10'
-                }`}
+                      ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
+                      : 'text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10'
+                  }`}
                 >
-                / about
+                  / about
                 </Link>
-            </div>
+              </div>
             </div>
 
-        {/* Projects subdirectory */}
-        {pathname?.startsWith('/projects') && (
-        <div className="animate-fadeIn">
-            <div className="text-gray-500 text-xs mb-2">$ ls ~/projects</div>
-            <div className="space-y-1 ml-4 border-l border-cyan-500/20 pl-3">
-            <Link
-                href="/projects/llamacve"
-                className={`block py-2 px-3 rounded transition-all ${
-                pathname === '/projects/llamacve'
-                    ? 'bg-purple-500/20 text-purple-400 border-l-2 border-purple-400'
-                    : 'text-gray-400 hover:text-purple-400 hover:bg-purple-500/10'
-                }`}
-            >
-                llamacve
-            </Link>
-            <Link
-                href="/projects/webapp"
-                className={`block py-2 px-3 rounded transition-all ${
-                pathname === '/projects/webapp'
-                    ? 'bg-purple-500/20 text-purple-400 border-l-2 border-purple-400'
-                    : 'text-gray-400 hover:text-purple-400 hover:bg-purple-500/10'
-                }`}
-            >
-                webapp
-            </Link>
-            </div>
-        </div>
-        )}
+            {/* Projects subdirectory */}
+            {pathname?.startsWith('/projects') && (
+              <div className="animate-fadeIn">
+                <div className="text-gray-500 text-xs mb-2">$ ls ~/projects</div>
+                <div className="space-y-1 ml-4 border-l border-cyan-500/20 pl-3">
+                  <Link
+                    href="/projects/llamacve"
+                    className={`block py-2 px-3 rounded transition-all ${
+                      pathname === '/projects/llamacve'
+                        ? 'bg-purple-500/20 text-purple-400 border-l-2 border-purple-400'
+                        : 'text-gray-400 hover:text-purple-400 hover:bg-purple-500/10'
+                    }`}
+                  >
+                    llamacve
+                  </Link>
+                  <Link
+                    href="/projects/webapp"
+                    className={`block py-2 px-3 rounded transition-all ${
+                      pathname === '/projects/webapp'
+                        ? 'bg-purple-500/20 text-purple-400 border-l-2 border-purple-400'
+                        : 'text-gray-400 hover:text-purple-400 hover:bg-purple-500/10'
+                    }`}
+                  >
+                    webapp
+                  </Link>
+                </div>
+              </div>
+            )}
 
             {/* External links */}
             <div>
