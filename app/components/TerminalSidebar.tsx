@@ -5,15 +5,15 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function TerminalSidebar() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false); // Changed default to false for mobile
   const pathname = usePathname();
 
   return (
     <>
-      {/* Mobile toggle button */}
+      {/* Mobile toggle button - always visible on mobile */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 p-2 rounded backdrop-blur"
+        className="lg:hidden fixed top-4 left-4 z-50 bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 p-3 rounded backdrop-blur hover:bg-cyan-500/30 transition-all"
         aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
       >
         {isOpen ? '✕' : '☰'}
@@ -24,11 +24,10 @@ export default function TerminalSidebar() {
         className={`
           fixed top-0 left-0 h-full w-80 bg-black/95 border-r border-cyan-500/30 
           backdrop-blur-lg z-40 transition-transform duration-300 font-mono text-sm
-          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
-          lg:translate-x-0
+          ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
-        <div className="p-6 h-full overflow-y-auto">
+        <div className="p-6 h-full overflow-y-auto pb-24">
           {/* Terminal header */}
           <div className="mb-6 pb-4 border-b border-cyan-500/30">
             <div className="text-cyan-400 mb-2">
@@ -48,6 +47,7 @@ export default function TerminalSidebar() {
               <div className="space-y-1">
                 <Link
                   href="/"
+                  onClick={() => setIsOpen(false)}
                   className={`block py-2 px-3 rounded transition-all ${
                     pathname === '/'
                       ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
@@ -58,6 +58,7 @@ export default function TerminalSidebar() {
                 </Link>
                 <Link
                   href="/projects"
+                  onClick={() => setIsOpen(false)}
                   className={`block py-2 px-3 rounded transition-all ${
                     pathname?.startsWith('/projects')
                       ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
@@ -68,6 +69,7 @@ export default function TerminalSidebar() {
                 </Link>
                 <Link
                   href="/about"
+                  onClick={() => setIsOpen(false)}
                   className={`block py-2 px-3 rounded transition-all ${
                     pathname === '/about'
                       ? 'bg-cyan-500/20 text-cyan-400 border-l-2 border-cyan-400'
@@ -86,6 +88,7 @@ export default function TerminalSidebar() {
                 <div className="space-y-1 ml-4 border-l border-cyan-500/20 pl-3">
                   <Link
                     href="/projects/llamacve"
+                    onClick={() => setIsOpen(false)}
                     className={`block py-2 px-3 rounded transition-all ${
                       pathname === '/projects/llamacve'
                         ? 'bg-purple-500/20 text-purple-400 border-l-2 border-purple-400'
@@ -96,6 +99,7 @@ export default function TerminalSidebar() {
                   </Link>
                   <Link
                     href="/projects/webapp"
+                    onClick={() => setIsOpen(false)}
                     className={`block py-2 px-3 rounded transition-all ${
                       pathname === '/projects/webapp'
                         ? 'bg-purple-500/20 text-purple-400 border-l-2 border-purple-400'
@@ -133,7 +137,7 @@ export default function TerminalSidebar() {
           </div>
 
           {/* Terminal prompt at bottom */}
-          <div className="mt-auto pt-6 border-t border-cyan-500/30">
+          <div className="mt-6 pt-6 border-t border-cyan-500/30">
             <div className="text-cyan-400 text-xs">
               <span className="text-green-400">$</span> pwd
               <div className="text-purple-400 mt-1">{pathname || '/'}</div>
@@ -145,7 +149,7 @@ export default function TerminalSidebar() {
       {/* Mobile overlay */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/50 z-30"
+          className="lg:hidden fixed inset-0 bg-black/70 z-30"
           onClick={() => setIsOpen(false)}
         />
       )}

@@ -103,7 +103,7 @@ export default function Home() {
       </div>
 
       {/* Terminal aesthetic footer */}
-      <div className="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur border-t border-cyan-500/40 px-6 py-3 font-mono text-sm text-cyan-400 z-20 shadow-[0_-5px_20px_rgba(0,255,255,0.1)]">
+      <div className="fixed bottom-0 left-0 lg:left-30 right-0 bg-black/90 backdrop-blur border-t border-cyan-500/40 px-6 py-3 font-mono text-sm text-cyan-400 z-20 shadow-[0_-5px_20px_rgba(0,255,255,0.1)]">
         <div className="container mx-auto flex justify-between items-center">
           <div>
             <span className="text-green-400">user@portfolio</span>
