@@ -29,7 +29,7 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white p-8 lg:pl-88">
+    <div className="min-h-screen bg-black text-white p-8">
       {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.08)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
 
